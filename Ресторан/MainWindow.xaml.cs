@@ -44,5 +44,15 @@ namespace Ресторан
         {
             DragMove();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void tab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        /*    tab.SelectedIndex = 4;*///делаетс япроверка если true, то открывается доступ к дргуим вкладкам
+        }
     }
 }

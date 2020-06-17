@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ресторан"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="800" Background="#FF646464" MouseDown="Grid_MouseDown_1">
             <Button Content="Выход" HorizontalAlignment="Left" Margin="715,6,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         </Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" Margin="0,31,0,0" VerticalAlignment="Top" Width="800">
-            <TabItem Header="Заказ" Height="30px" Width="70px">
+        <TabControl Name="tab" HorizontalAlignment="Left" Height="419" Margin="0,31,0,0" VerticalAlignment="Top" Width="800" SelectionChanged="tab_SelectionChanged">
+            <TabItem Name="tab1" Header="Заказ" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Клиенты" Height="30px" Width="70px">
+            <TabItem Name="tab2" Header="Клиенты" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Места" Height="30px" Width="70px">
+            <TabItem Name="tab3" Header="Места" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem Header="Блюда" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
+            <TabItem Header="Авторизация" Height="30px" Margin="424,0,-440,0">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            
         </TabControl>
         <Canvas HorizontalAlignment="Left" Height="100" Margin="403,-50,0,0" VerticalAlignment="Top" Width="100"/>
 
