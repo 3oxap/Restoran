@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+
 
 namespace Ресторан
 {
@@ -25,15 +28,9 @@ namespace Ресторан
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-           
-        }
+        БД бД;
+       
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -47,12 +44,39 @@ namespace Ресторан
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            
+            бД = new БД();
+            бД.Подключение();
+         
         }
 
         private void tab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-        /*    tab.SelectedIndex = 4;*///делаетс япроверка если true, то открывается доступ к дргуим вкладкам
+            //tab.SelectedIndex = 4;
+            //делается проверка если true, то открывается доступ к дргуим вкладкам
+        }
+
+        private void TabItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            бД = new БД();
+            БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
+        }
+
+        private void tab1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            бД = new БД();
+            ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
+        }
+
+        private void tab2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            бД = new БД();
+            КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
+        }
+
+        private void tab3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            бД = new БД();
+            МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
         }
     }
 }
