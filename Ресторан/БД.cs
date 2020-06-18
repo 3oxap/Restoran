@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Linq;
 
 namespace Ресторан
 {
@@ -15,8 +16,7 @@ namespace Ресторан
         SqlConnection connection;
         SqlDataAdapter adapter;
         DataSet dataSet;
-        DataTable dataTable;
-
+        DataContext dataContext;
 
         public void Подключение()
         {
@@ -73,6 +73,17 @@ namespace Ресторан
             adapter.Fill(dataSet);
             connection.Close();
             return dataSet;
+        }
+        public bool Авторизация(string Лог, string Пар)
+        {
+            string логин = null, пароль=null;
+            Подключение();
+
+            dataContext = new DataContext(connection);
+            Table<Сотрудники> сотрудникиs = dataContext.GetTable<Сотрудники>();
+            //var q = сотрудникиs.Where(i => i.Логин == Лог && i.Пароль == Пар);
+            var q = сотрудникиs.Any(i => i.Логин == Лог && i.Пароль == Пар);
+            return q;
         }
     }
 }

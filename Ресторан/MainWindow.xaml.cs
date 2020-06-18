@@ -30,7 +30,7 @@ namespace Ресторан
 
 
         БД бД;
-       
+        bool вход;
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -41,42 +41,80 @@ namespace Ресторан
         {
             DragMove();
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             бД = new БД();
             бД.Подключение();
          
-        }
 
+        }
+       
         private void tab_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //tab.SelectedIndex = 4;
-            //делается проверка если true, то открывается доступ к дргуим вкладкам
+            if (вход == true)
+            {
+               
+            }
+            else
+            {
+                tab.SelectedIndex = 4;
+            }
+
+
+
         }
 
         private void TabItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            бД = new БД();
+           
             БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
         }
 
         private void tab1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            бД = new БД();
+           
             ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
         }
 
         private void tab2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            бД = new БД();
+           
             КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
         }
 
         private void tab3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            бД = new БД();
+           
             МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
+            var q= бД.Авторизация(Логин.Text, Пароль.Text);
+            вход = q;
+            if (вход == true)
+            {
+                tab.SelectedIndex = -1;
+            }
+            else
+            {
+                tab.SelectedIndex = 4;
+            }
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            вход = false;
+            if (вход == true)
+            {
+                tab.SelectedIndex = -1;
+            }
+            else
+            {
+                tab.SelectedIndex = 4;
+            }
         }
     }
 }

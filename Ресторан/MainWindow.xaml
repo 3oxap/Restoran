@@ -73,9 +73,10 @@
             </TabItem>
             <TabItem Header="Авторизация" Height="30px" Margin="424,0,-440,0">
                 <Grid Background="#FFE5E5E5">
-                    <Button Content="Авторизоватся" HorizontalAlignment="Left" Margin="303,183,0,0" VerticalAlignment="Top" Width="120" Height="30"/>
-                    <TextBox  Style="{StaticResource MyWaterMarkStyle}" Tag="Логин"  HorizontalAlignment="Left" Height="23" Margin="303,127,0,0" TextWrapping="Wrap" Width="120" VerticalAlignment="Top"/>
-                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Пароль"  HorizontalAlignment="Left" Height="23" Margin="303,155,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Авторизоватся" HorizontalAlignment="Left" Margin="303,183,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click"/>
+                    <TextBox Name="Логин"  Style="{StaticResource MyWaterMarkStyle}" Tag="Логин"  HorizontalAlignment="Left" Height="23" Margin="303,127,0,0" TextWrapping="Wrap" Width="120" VerticalAlignment="Top"/>
+                    <TextBox Name="Пароль" Style="{StaticResource MyWaterMarkStyle}" Tag="Пароль"  HorizontalAlignment="Left" Height="23" Margin="303,155,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Выход" HorizontalAlignment="Left" Margin="303,218,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2"/>
                 </Grid>
             </TabItem>
 

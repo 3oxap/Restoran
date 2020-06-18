@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ресторан" Class="АвторизацияDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Ресторан;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Ресторан.Properties.Settings" SettingsPropertyName="РесторанConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Сотрудники" Member="Сотрудники">
+    <Type Name="Сотрудники">
+      <Column Name="ФИО" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Логин" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Пароль" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
