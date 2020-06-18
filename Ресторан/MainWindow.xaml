@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Ресторан"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
-    
+
     <Window.Resources>
-        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">   
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -34,14 +34,20 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="800" Background="#FF646464" MouseDown="Grid_MouseDown_1">
             <Button Content="Выход" HorizontalAlignment="Left" Margin="715,6,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         </Grid>
         <TabControl Name="tab" HorizontalAlignment="Left" Height="419" Margin="0,31,0,0" VerticalAlignment="Top" Width="800" SelectionChanged="tab_SelectionChanged">
             <TabItem Name="tab1" Header="Заказ" Height="30px" Width="70px">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid HorizontalAlignment="Left" Height="381" Margin="135,0,0,0" VerticalAlignment="Top" Width="659"/>
+                    <Button Content="Создать заказ" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="90" Height="28"/>
+                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="ФИО" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Место" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Блюда" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                </Grid>
             </TabItem>
             <TabItem Name="tab2" Header="Клиенты" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5">
@@ -70,7 +76,7 @@
             </TabItem>
 
         </TabControl>
-  
+
 
     </Grid>
 </Window>
