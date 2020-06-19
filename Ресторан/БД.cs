@@ -76,13 +76,24 @@ namespace Ресторан
         }
         public bool Авторизация(string Лог, string Пар)
         {
-            string логин = null, пароль=null;
+          
             Подключение();
 
             dataContext = new DataContext(connection);
             Table<Сотрудники> сотрудникиs = dataContext.GetTable<Сотрудники>();
             //var q = сотрудникиs.Where(i => i.Логин == Лог && i.Пароль == Пар);
             var q = сотрудникиs.Any(i => i.Логин == Лог && i.Пароль == Пар);
+            return q;
+        }
+
+        public IQueryable<Блюда> Запрос_Блюда(string Название, string Категория)
+        {
+            Подключение();
+            dataContext = new DataContext(connection);
+            Table<Блюда> блюдаs = dataContext.GetTable<Блюда>();
+            var q = блюдаs.Where(i => i.Название_блюда == Название || i.Категория == Категория);
+            
+
             return q;
         }
     }

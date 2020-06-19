@@ -32,21 +32,21 @@ namespace Ресторан
         БД бД;
         bool вход;
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)//выход из программы
         {
             Application.Current.Shutdown();
         }
 
-        private void Grid_MouseDown_1(object sender, MouseButtonEventArgs e)
+        private void Grid_MouseDown_1(object sender, MouseButtonEventArgs e)//движение формы
         {
             DragMove();
         }
         
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)//загрузка формы
         {
             бД = new БД();
             бД.Подключение();
-         
+           
 
         }
        
@@ -63,33 +63,18 @@ namespace Ресторан
 
 
 
-        }
+        }//переключение между вкладок
 
-        private void TabItem_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-            БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
-        }
+     
 
-        private void tab1_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-            ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
-        }
+       
 
-        private void tab2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-            КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
-        }
+      
 
-        private void tab3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-           
-            МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
-        }
+      
+      
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//авторизация
         {
            
             var q= бД.Авторизация(Логин.Text, Пароль.Text);
@@ -97,6 +82,10 @@ namespace Ресторан
             if (вход == true)
             {
                 tab.SelectedIndex = -1;
+                БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
+                ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
+                КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
+                МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
             }
             else
             {
@@ -115,6 +104,17 @@ namespace Ресторан
             {
                 tab.SelectedIndex = 4;
             }
+        }//выход из программы
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            БлюдаGrid.ItemsSource = бД.Запрос_Блюда(НазваниеБлюда.Text, КатегорияБлюда.Text);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
         }
     }
 }

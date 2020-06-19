@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Ресторан" Class="АвторизацияDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Ресторан;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Ресторан.Properties.Settings" SettingsPropertyName="РесторанConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Сотрудники" Member="Сотрудники">
+    <Type Name="Сотрудники">
+      <Column Name="ФИО" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Логин" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Пароль" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Заказ" Member="Заказ">
+    <Type Name="Заказ">
+      <Column Name="ФИО" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Место" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Блюда" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Сумма" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Клиент" Member="Клиент">
+    <Type Name="Клиент">
+      <Column Name="ФИО" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Номер телефона]" Member="Номер_телефона" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Посещений" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Скидка" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Места" Member="Места">
+    <Type Name="Места">
+      <Column Name="[Номер места]" Member="Номер_места" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Состояние" Type="System.Data.Linq.Binary" DbType="Binary(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Блюда" Member="Блюда">
+    <Type Name="Блюда">
+      <Column Name="[Название блюда]" Member="Название_блюда" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Масса ингридиентов(граммы)]" Member="Масса_ингридиентов_граммы_" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Сумма(Руб BY)]" Member="Сумма_Руб_BY_" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Категория" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

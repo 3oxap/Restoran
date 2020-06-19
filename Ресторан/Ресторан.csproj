@@ -56,10 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Авторизация.designer.cs">
+    <Compile Include="Таблицы.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Авторизация.dbml</DependentUpon>
+      <DependentUpon>Таблицы.dbml</DependentUpon>
     </Compile>
     <Compile Include="БД.cs" />
     <Page Include="MainWindow.xaml">
@@ -97,13 +97,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Авторизация.dbml">
+    <None Include="Таблицы.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>Авторизация.designer.cs</LastGenOutput>
+      <LastGenOutput>Таблицы.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Авторизация.dbml.layout">
-      <DependentUpon>Авторизация.dbml</DependentUpon>
+    <None Include="Таблицы.dbml.layout">
+      <DependentUpon>Таблицы.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
