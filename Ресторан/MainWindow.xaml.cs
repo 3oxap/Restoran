@@ -106,7 +106,7 @@ namespace Ресторан
             }
         }//выход из программы
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e)//поиск в таблице блюда
         {
 
             БлюдаGrid.ItemsSource = бД.Запрос_Блюда(НазваниеБлюда.Text, КатегорияБлюда.Text);
@@ -115,6 +115,16 @@ namespace Ресторан
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
+        }//обновление таблицы блюда
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)//поиск в таблице клиенты
+        {
+            КлиентыGrid.ItemsSource = бД.Запрос_Клиенты(ФИО.Text);
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)//обновление таблицы клиенты
+        {
+            КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
         }
     }
 }

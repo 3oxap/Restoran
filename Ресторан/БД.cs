@@ -93,7 +93,15 @@ namespace Ресторан
             Table<Блюда> блюдаs = dataContext.GetTable<Блюда>();
             var q = блюдаs.Where(i => i.Название_блюда == Название || i.Категория == Категория);
             
+            return q;
+        }//поиск Блюда
 
+        public IQueryable<Клиент> Запрос_Клиенты(string ФИО)
+        {
+
+            dataContext = new DataContext(connection);
+            Table<Клиент> клиентs = dataContext.GetTable<Клиент>();
+            var q = клиентs.Where(i => i.ФИО == ФИО);
             return q;
         }
     }

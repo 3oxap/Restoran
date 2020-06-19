@@ -52,9 +52,9 @@
             <TabItem Name="tab2" Header="Клиенты" Height="30px" Width="70px">
                 <Grid Background="#FFE5E5E5">
                     <DataGrid Name="КлиентыGrid" HorizontalAlignment="Left" Height="314" Margin="0,67,0,0" VerticalAlignment="Top" Width="794" GridLinesVisibility="None"/>
-                    <Button Content="Поиск" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="83" Height="25"/>
-                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="ФИО"  HorizontalAlignment="Left" Height="23" Margin="0,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Сброс/обновить" HorizontalAlignment="Left" Margin="673,39,0,0" VerticalAlignment="Top" Width="111" Height="24"/>
+                    <Button Content="Поиск" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="Button_Click_5"/>
+                    <TextBox Name="ФИО" Style="{StaticResource MyWaterMarkStyle}" Tag="ФИО"  HorizontalAlignment="Left" Height="23" Margin="0,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="235"/>
+                    <Button Content="Сброс/обновить" HorizontalAlignment="Left" Margin="673,39,0,0" VerticalAlignment="Top" Width="111" Height="24" Click="Button_Click_6"/>
                 </Grid>
             </TabItem>
             <TabItem Name="tab3" Header="Места" Height="30px" Width="70px" >
