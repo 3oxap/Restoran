@@ -126,5 +126,32 @@ namespace Ресторан
         {
             КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
         }
+
+        private void tab3_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)//обновление таблицы клиенты
+        {
+            МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)//добавление заказа
+        {
+            ЗаказGrid.ItemsSource = бД.Создание_Заказа(ЗФИО.Text,Convert.ToInt32(ЗМесто.Text), ЗБлюда.Text).Tables;
+            ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)//сохранения заказа(отменено)
+        {
+          
+
+          
+
+
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)//редактирование заказа
+        {
+            бД.Редактирование_заказа(Convert.ToInt32(ID.Text), ЗБлюда.Text);
+            ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
+
+        }
     }
 }

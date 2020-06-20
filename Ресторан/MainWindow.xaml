@@ -42,11 +42,13 @@
         <TabControl Name="tab" HorizontalAlignment="Left" Height="419" Margin="0,31,0,0" VerticalAlignment="Top" Width="800" SelectionChanged="tab_SelectionChanged">
             <TabItem Name="tab1" Header="Заказ" Height="30px" Width="70px" >
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid Name="ЗаказGrid" HorizontalAlignment="Left" Height="381" Margin="135,0,0,0" VerticalAlignment="Top" Width="659" GridLinesVisibility="None"/>
-                    <Button Content="Создать заказ" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="90" Height="28"/>
-                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="ФИО" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Место" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                    <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="Блюда" HorizontalAlignment="Left" Height="23" Margin="10,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <DataGrid Name="ЗаказGrid" HorizontalAlignment="Left" Height="381" Margin="160,0,0,0" VerticalAlignment="Top" Width="634" GridLinesVisibility="None"/>
+                    <Button Content="Создать заказ" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="90" Height="28" Click="Button_Click_7"/>
+                    <TextBox Name="ЗФИО" Style="{StaticResource MyWaterMarkStyle}" Tag="ФИО" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="ЗМесто" Style="{StaticResource MyWaterMarkStyle}" Tag="Место" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="ЗБлюда" Style="{StaticResource MyWaterMarkStyle}" Tag="Блюда" HorizontalAlignment="Left" Height="64" Margin="10,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Редактировать" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="90" Height="28" Click="Button_Click_9"/>
+                    <TextBox Name="ID" Style="{StaticResource MyWaterMarkStyle}" Tag="ID" HorizontalAlignment="Left" Height="23" Margin="105,173,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="50"/>
                 </Grid>
             </TabItem>
             <TabItem Name="tab2" Header="Клиенты" Height="30px" Width="70px">
@@ -57,7 +59,7 @@
                     <Button Content="Сброс/обновить" HorizontalAlignment="Left" Margin="673,39,0,0" VerticalAlignment="Top" Width="111" Height="24" Click="Button_Click_6"/>
                 </Grid>
             </TabItem>
-            <TabItem Name="tab3" Header="Места" Height="30px" Width="70px" >
+            <TabItem Name="tab3" Header="Места" Height="30px" Width="70px" MouseLeftButtonUp="tab3_MouseLeftButtonUp" >
                 <Grid Background="#FFE5E5E5">
                     <DataGrid Name="МестаGrid" HorizontalAlignment="Left" Height="381" VerticalAlignment="Top" Width="794" GridLinesVisibility="None"/>
                 </Grid>

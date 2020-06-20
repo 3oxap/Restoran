@@ -104,5 +104,53 @@ namespace Ресторан
             var q = клиентs.Where(i => i.ФИО == ФИО);
             return q;
         }
+
+       
+        public DataSet Создание_Заказа(string ФИО, int Место, string Блюда)
+        {
+            Подключение();
+            dataSet = new DataSet();
+            connection.Open();
+            adapter = new SqlDataAdapter($"INSERT INTO Заказ(ФИО, Места, Блюда) VALUES ('{ФИО}',{Место},'{Блюда}')", connection);
+            adapter.Fill(dataSet);
+            connection.Close();
+
+
+
+            return dataSet;
+               
+        }
+        
+        public object Редактирование_заказа(int ID, string Блюда)
+        {
+            Подключение();
+            connection.Open();
+            dataSet = new DataSet();
+
+            adapter = new SqlDataAdapter($"SELECT Блюда FROM Заказ WHERE ID={ID}", connection);
+            adapter.Fill(dataSet);
+
+            string данные = null;
+
+            foreach (DataTable data in dataSet.Tables)
+            {
+                foreach(DataRow row in data.Rows)
+                {
+                    var q = row.ItemArray;
+                    foreach (object s in q)
+                    {
+                        данные = s.ToString();
+                        
+                        
+                    }
+                }
+            }
+           
+            adapter = new SqlDataAdapter($"UPDATE Заказ SET [Блюда]='{данные+ " " + Блюда}' WHERE ID ={ID}", connection);
+            adapter.Fill(dataSet);
+
+            return 0;
+
+        }
     }
 }
