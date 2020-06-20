@@ -17,22 +17,23 @@ namespace Ресторан
         SqlDataAdapter adapter;
         DataSet dataSet;
         DataContext dataContext;
-
+        SqlDataReader reader;
+        SqlCommand sqlCommand;
         public void Подключение()
         {
-                connection = new SqlConnection(connectionString);
-          
+            connection = new SqlConnection(connectionString);
+
         }
 
         public DataSet Таблица_Блюда()
         {
-                Подключение();
-                dataSet = new DataSet();
-                connection.Open();
-                adapter = new SqlDataAdapter("SELECT * FROM Блюда", connection);
-                adapter.Fill(dataSet);
-                connection.Close();
-                return dataSet;
+            Подключение();
+            dataSet = new DataSet();
+            connection.Open();
+            adapter = new SqlDataAdapter("SELECT * FROM Блюда", connection);
+            adapter.Fill(dataSet);
+            connection.Close();
+            return dataSet;
         }
         public DataSet Таблица_Клиенты()
         {
@@ -76,7 +77,7 @@ namespace Ресторан
         }
         public bool Авторизация(string Лог, string Пар)
         {
-          
+
             Подключение();
 
             dataContext = new DataContext(connection);
@@ -92,7 +93,7 @@ namespace Ресторан
             dataContext = new DataContext(connection);
             Table<Блюда> блюдаs = dataContext.GetTable<Блюда>();
             var q = блюдаs.Where(i => i.Название_блюда == Название || i.Категория == Категория);
-            
+
             return q;
         }//поиск Блюда
 
@@ -105,22 +106,24 @@ namespace Ресторан
             return q;
         }
 
-       
+
         public DataSet Создание_Заказа(string ФИО, int Место, string Блюда)
         {
             Подключение();
             dataSet = new DataSet();
             connection.Open();
-            adapter = new SqlDataAdapter($"INSERT INTO Заказ(ФИО, Места, Блюда) VALUES ('{ФИО}',{Место},'{Блюда}')", connection);
+            adapter = new SqlDataAdapter($"INSERT INTO Заказ(ФИО, Места, Блюда) VALUES (N'{ФИО}',{Место},N'{Блюда}')", connection);
             adapter.Fill(dataSet);
             connection.Close();
+
+           
 
 
 
             return dataSet;
-               
+
         }
-        
+
         public object Редактирование_заказа(int ID, string Блюда)
         {
             Подключение();
@@ -134,23 +137,48 @@ namespace Ресторан
 
             foreach (DataTable data in dataSet.Tables)
             {
-                foreach(DataRow row in data.Rows)
+                foreach (DataRow row in data.Rows)
                 {
                     var q = row.ItemArray;
                     foreach (object s in q)
                     {
                         данные = s.ToString();
-                        
-                        
+
+
                     }
                 }
             }
-           
-            adapter = new SqlDataAdapter($"UPDATE Заказ SET [Блюда]='{данные+ " " + Блюда}' WHERE ID ={ID}", connection);
+
+            adapter = new SqlDataAdapter($"UPDATE Заказ SET [Блюда]='{данные + " " + Блюда}' WHERE ID ={ID}", connection);
             adapter.Fill(dataSet);
 
             return 0;
 
+        }
+
+
+        public void Добавление_клиента(string фио, int телефон)
+        {
+            Подключение();
+            connection.Open();
+            dataSet = new DataSet();
+
+            adapter = new SqlDataAdapter($"INSERT INTO Клиент(ФИО, [Номер телефона]) VALUES (N'{фио}',{телефон})", connection);
+            adapter.Fill(dataSet);
+            connection.Close();
+            
+        }
+
+        public DataSet dataSetFIO()
+        {
+
+            Подключение();
+            connection.Open();
+            dataSet = new DataSet();
+
+            adapter = new SqlDataAdapter($"SELECT ФИО FROM Клиент", connection);
+            adapter.Fill(dataSet);
+            return dataSet;
         }
     }
 }

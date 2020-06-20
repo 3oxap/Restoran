@@ -81,11 +81,37 @@ namespace Ресторан
             вход = q;
             if (вход == true)
             {
+                ZBOX.Items.Clear();
                 tab.SelectedIndex = -1;
                 БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
                 ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
                 КлиентыGrid.ItemsSource = бД.Таблица_Клиенты().Tables[0].DefaultView;
                 МестаGrid.ItemsSource = бД.Таблица_Места().Tables[0].DefaultView;
+
+                string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Зохар\Ресторан.mdf;Integrated Security=True;Connect Timeout=30";
+                SqlDataReader reader;
+                SqlConnection connection;
+                SqlCommand sqlCommand;
+
+                connection = new SqlConnection(connectionString);
+               
+                sqlCommand = new SqlCommand("SELECT ФИО FROM Клиент", connection);
+                connection.Open();
+                reader = sqlCommand.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        string name = reader.GetString(0);
+                        ZBOX.Items.Add(name);
+                        
+
+                    }
+                }
+                reader.Close();
+
+
+
             }
             else
             {
@@ -134,7 +160,7 @@ namespace Ресторан
 
         private void Button_Click_7(object sender, RoutedEventArgs e)//добавление заказа
         {
-            ЗаказGrid.ItemsSource = бД.Создание_Заказа(ЗФИО.Text,Convert.ToInt32(ЗМесто.Text), ЗБлюда.Text).Tables;
+            ЗаказGrid.ItemsSource = бД.Создание_Заказа(ZBOX.Text,Convert.ToInt32(ЗМесто.Text), ЗБлюда.Text).Tables;
             ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
         }
 
@@ -152,6 +178,39 @@ namespace Ресторан
             бД.Редактирование_заказа(Convert.ToInt32(ID.Text), ЗБлюда.Text);
             ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
 
+        }
+
+        private void Обновить_Click(object sender, RoutedEventArgs e)
+        {
+            ZBOX.Items.Clear();
+            ЗаказGrid.ItemsSource = бД.Таблица_Заказ().Tables[0].DefaultView;
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Зохар\Ресторан.mdf;Integrated Security=True;Connect Timeout=30";
+            SqlDataReader reader;
+            SqlConnection connection;
+            SqlCommand sqlCommand;
+
+            connection = new SqlConnection(connectionString);
+
+            sqlCommand = new SqlCommand("SELECT ФИО FROM Клиент", connection);
+            connection.Open();
+            reader = sqlCommand.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string name = reader.GetString(0);
+                    ZBOX.Items.Add(name);
+
+
+                }
+            }
+            reader.Close();
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            Клиенты клиенты = new Клиенты();
+            клиенты.Show();
         }
     }
 }
