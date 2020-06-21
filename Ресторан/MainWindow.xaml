@@ -73,6 +73,7 @@
                     <TextBox Name="НазваниеБлюда" Style="{StaticResource MyWaterMarkStyle}" Tag="Название"  HorizontalAlignment="Left" Height="23" Margin="0,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
                     <TextBox  Name="КатегорияБлюда" Style="{StaticResource MyWaterMarkStyle}" Tag="Категория"  HorizontalAlignment="Left" Height="23" Margin="125,39,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
                     <Button Content="Сброс/обновить" HorizontalAlignment="Left" Margin="680,39,0,0" VerticalAlignment="Top" Width="104" Height="24" Click="Button_Click_4"/>
+                    <Button Content="Добавить" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="Button_Click_11"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Авторизация" Height="30px" Margin="424,0,-440,0">

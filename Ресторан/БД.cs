@@ -180,5 +180,18 @@ namespace Ресторан
             adapter.Fill(dataSet);
             return dataSet;
         }
+
+        public void Добавление_Блюда(string Название,string Масса,int Сумма,string Категория)
+        {
+            Подключение();
+
+            connection.Open();
+            dataSet = new DataSet();
+            adapter = new SqlDataAdapter($"INSERT INTO Блюда ([Название блюда],[Масса ингридиентов(граммы)],[Сумма(Руб BY)],[Категория]  ) VALUES (N'{Название}',N'{Масса}',{Сумма},N'{Категория}')", connection);
+            adapter.Fill(dataSet);
+            connection.Close();
+            
+            
+        }
     }
 }

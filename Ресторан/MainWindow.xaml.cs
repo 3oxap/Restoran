@@ -212,5 +212,11 @@ namespace Ресторан
             Клиенты клиенты = new Клиенты();
             клиенты.Show();
         }
+
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            ДобавлениеБлюда добавление = new ДобавлениеБлюда();
+            добавление.Show();
+        }
     }
 }
