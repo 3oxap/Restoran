@@ -193,5 +193,54 @@ namespace Ресторан
             
             
         }
+
+
+
+        public int Рассчёт_суммы(int ID)
+        {
+            Подключение();
+            connection.Open();
+            string запрос = $"SELECT Блюда FROM Заказ WHERE ID={ID}";
+            sqlCommand = new SqlCommand(запрос, connection);
+            reader = sqlCommand.ExecuteReader();
+
+            List<string> блюда = new List<string>();
+
+            while (reader.Read())
+            {
+                блюда.Add(reader.GetString(0));
+            }
+            reader.Close();
+            string vs = блюда[0];
+            string[] данные = vs.Split(new char[] { ' ' });
+            
+            
+          
+            int сумм = 0;
+
+           
+            foreach (string item in данные)
+            {
+
+                Подключение();
+                dataContext = new DataContext(connection);
+                Table<Блюда> блюдаs = dataContext.GetTable<Блюда>();
+                var q = блюдаs.Where(i => i.Название_блюда == item);
+
+                var w= q.Select(i => i.Сумма_Руб_BY_);
+                {
+                    
+                }
+
+                foreach(int i in w)
+                {
+                    сумм += i;
+
+                }
+            }
+            return сумм;
+        }
+
+        
     }
 }

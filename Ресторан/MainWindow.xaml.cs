@@ -217,6 +217,24 @@ namespace Ресторан
         {
             ДобавлениеБлюда добавление = new ДобавлениеБлюда();
             добавление.Show();
+           
+
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            //PrintDialog printDialog = new PrintDialog();
+            //if(printDialog.ShowDialog()==true)
+            //{
+            //    printDialog.PrintVisual(ЗаказGrid, "Печать");
+            //}
+            //Печать печать = new Печать();
+            //печать.Show();
+
+            //MessageBox.Show(бД.Рассчёт_суммы(Convert.ToInt32(ID.Text)).ToString());
+         
+
+
         }
     }
 }

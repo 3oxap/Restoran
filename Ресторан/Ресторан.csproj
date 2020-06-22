@@ -62,6 +62,9 @@
     <Compile Include="Клиенты.xaml.cs">
       <DependentUpon>Клиенты.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Печать.xaml.cs">
+      <DependentUpon>Печать.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Таблицы.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Клиенты.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Печать.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
