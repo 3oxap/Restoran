@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ресторан"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="MainWindow" Height="227" Width="387" WindowStyle="None" ResizeMode="NoResize" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
@@ -37,7 +37,7 @@
 
     <Grid>
         <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="800" Background="#FF646464" MouseDown="Grid_MouseDown_1">
-            <Button Content="Выход" HorizontalAlignment="Left" Margin="735,0,0,0" VerticalAlignment="Top" Width="65" Click="Button_Click_1" Height="31"/>
+            <Button Content="Выход" HorizontalAlignment="Left" VerticalAlignment="Top" Width="65" Click="Button_Click_1" Height="31"/>
         </Grid>
         <TabControl Name="tab" HorizontalAlignment="Left" Height="419" Margin="0,31,0,0" VerticalAlignment="Top" Width="800" SelectionChanged="tab_SelectionChanged">
             <TabItem Name="tab1" Header="Заказ" Height="30px" Width="70px" >
@@ -77,12 +77,14 @@
                     <Button Content="Добавить" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top" Width="83" Height="25" Click="Button_Click_11"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Авторизация" Height="30px" Margin="424,0,-440,0">
-                <Grid Background="#FFE5E5E5">
-                    <Button Content="Авторизоватся" HorizontalAlignment="Left" Margin="303,183,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click"/>
-                    <TextBox Name="Логин"  Style="{StaticResource MyWaterMarkStyle}" Tag="Логин"  HorizontalAlignment="Left" Height="23" Margin="303,127,0,0" TextWrapping="Wrap" Width="120" VerticalAlignment="Top"/>
-                    <TextBox  Name="Пароль" Style="{StaticResource MyWaterMarkStyle}"  Tag="Пароль"  HorizontalAlignment="Left" Height="23" Margin="303,155,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-                    <Button   Content="Выход" HorizontalAlignment="Left" Margin="303,218,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2"/>
+            <TabItem Header="Авторизация" Height="30px" Margin="1,0,-17,0">
+                <Grid Background="#FFE5E5E5" Margin="0,0,582,221">
+                    <Button Content="Авторизоватся" HorizontalAlignment="Left" Margin="66,71,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click"/>
+                    <TextBox Name="Логин"    HorizontalAlignment="Left" Height="23" Margin="66,15,0,0" TextWrapping="Wrap" Width="120" VerticalAlignment="Top"/>
+                    <Button   Content="Выход" HorizontalAlignment="Left" Margin="66,106,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="Button_Click_2"/>
+                    <PasswordBox Name="Пароль"  HorizontalAlignment="Left" Margin="66,43,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                    <Label Content="Логин" HorizontalAlignment="Left" Margin="17,15,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Пароль" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
 

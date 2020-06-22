@@ -76,11 +76,12 @@ namespace Ресторан
 
         private void Button_Click(object sender, RoutedEventArgs e)//авторизация
         {
-           
-            var q= бД.Авторизация(Логин.Text, Пароль.Text);
+            
+            var q= бД.Авторизация(Логин.Text, Пароль.Password);
             вход = q;
             if (вход == true)
             {
+                this.Width = 800; this.Height = 450;
                 ZBOX.Items.Clear();
                 tab.SelectedIndex = -1;
                 БлюдаGrid.ItemsSource = бД.Таблица_Блюда().Tables[0].DefaultView;
@@ -121,7 +122,10 @@ namespace Ресторан
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            this.Width = 387; this.Height = 227;
             вход = false;
+            Логин.Text = null;
+            Пароль.Password= null;
             if (вход == true)
             {
                 tab.SelectedIndex = -1;
