@@ -228,11 +228,12 @@ namespace Ресторан
             //{
             //    printDialog.PrintVisual(ЗаказGrid, "Печать");
             //}
-            //Печать печать = new Печать();
-            //печать.Show();
+          
+            Печать печать = new Печать(Convert.ToInt32(ID.Text));
+            печать.Show();
 
             //MessageBox.Show(бД.Рассчёт_суммы(Convert.ToInt32(ID.Text)).ToString());
-         
+
 
 
         }

@@ -19,9 +19,40 @@ namespace Ресторан
     /// </summary>
     public partial class Печать : Window
     {
-        public Печать()
+        int id = 0;
+        public Печать(int id)
         {
             InitializeComponent();
+            this.id = id;
+        }
+        БД бД;
+
+       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            бД = new БД();
+            string[] vs = бД.название_блюд(id).Split(new char[] { ' ', ',' });
+            for (int i=0;i< бД.количесво_блюд(id);i++)
+            {
+               
+                    Чек.Items.Add("Блюда "+vs[i]+" Цена "+бД.сумму_блюда(id)[i]);
+                
+            }
+            Чек.Items.Add("Итого " + бД.Рассчёт_суммы(id));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(Чек, "Печать");
+            }
         }
     }
 }

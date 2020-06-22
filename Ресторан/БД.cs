@@ -195,7 +195,6 @@ namespace Ресторан
         }
 
 
-
         public int Рассчёт_суммы(int ID)
         {
             Подключение();
@@ -212,8 +211,8 @@ namespace Ресторан
             }
             reader.Close();
             string vs = блюда[0];
-            string[] данные = vs.Split(new char[] { ' ' });
-            
+            string[] данные = vs.Split(new char[] { ' ', ',' });
+
             
           
             int сумм = 0;
@@ -241,6 +240,90 @@ namespace Ресторан
             return сумм;
         }
 
-        
+        public int количесво_блюд(int id)
+        {
+            Подключение();
+            connection.Open();
+            string запрос = $"SELECT Блюда FROM Заказ WHERE ID={id}";
+            sqlCommand = new SqlCommand(запрос, connection);
+            reader = sqlCommand.ExecuteReader();
+
+            List<string> блюда = new List<string>();
+
+            while (reader.Read())
+            {
+                блюда.Add(reader.GetString(0));
+            }
+            reader.Close();
+            string vs = блюда[0];
+            string[] данные = vs.Split(new char[] { ' ', ',' });
+
+            return данные.Length;
+        }
+
+        public string название_блюд(int id)
+        {
+            Подключение();
+            connection.Open();
+            string запрос = $"SELECT Блюда FROM Заказ WHERE ID={id}";
+            sqlCommand = new SqlCommand(запрос, connection);
+            reader = sqlCommand.ExecuteReader();
+
+            List<string> блюда = new List<string>();
+
+            while (reader.Read())
+            {
+                блюда.Add(reader.GetString(0));
+            }
+            reader.Close();
+            string vs = блюда[0];
+            return vs;
+        }
+
+        public int[] сумму_блюда(int id)
+        {
+            Подключение();
+            connection.Open();
+            string запрос = $"SELECT Блюда FROM Заказ WHERE ID={id}";
+            sqlCommand = new SqlCommand(запрос, connection);
+            reader = sqlCommand.ExecuteReader();
+
+            List<string> блюда = new List<string>();
+
+            while (reader.Read())
+            {
+                блюда.Add(reader.GetString(0));
+            }
+            reader.Close();
+            string vs = блюда[0];
+            string[] данные = vs.Split(new char[] { ' ', ',' });
+
+
+
+            int[] сумм=new int[данные.Length];
+
+
+            foreach (string item in данные)
+            {
+
+                Подключение();
+                dataContext = new DataContext(connection);
+                Table<Блюда> блюдаs = dataContext.GetTable<Блюда>();
+                var q = блюдаs.Where(i => i.Название_блюда == item);
+
+                var w = q.Select(i => i.Сумма_Руб_BY_);
+
+                foreach (int item1 in w)
+                {
+                    for (int i = 0; i < данные.Length; i++)
+                    {
+                        сумм[i] = item1;
+                    }
+                }
+               
+            }
+
+            return сумм;
+        }
     }
 }

@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ресторан"
         mc:Ignorable="d"
-        Title="Печать" Height="421.714" Width="348.77" WindowStyle="None">
+        Title="Печать" Height="421.714" Width="348.77" WindowStyle="None" Loaded="Window_Loaded">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="341"/>
-        <Button Content="Печать" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" Width="124" Height="42"/>
+        <ListBox Name="Чек" HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="341">
+           
+            <ListBoxItem HorizontalAlignment="Center" FontSize="20" >ЧЕК</ListBoxItem>
+            
+        </ListBox>
+        <Button Content="Печать" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" Width="124" Height="38" Click="Button_Click_1"/>
+        <Button Content="Отмена" HorizontalAlignment="Left" Margin="207,366,0,0" VerticalAlignment="Top" Width="124" Height="38" Click="Button_Click"/>
 
     </Grid>
 </Window>
